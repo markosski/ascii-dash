@@ -12,4 +12,8 @@ Elements in the game are:
 - "|" - vertical wall
 - "-" - horizontal wall
 
-![Alt text](https://github.com/martez81/scala-dash/blob/master/resource/img/screenshot1.png)
+![Alt text](https://github.com/martez81/scala-dash/blob/master/resource/img/screenshopng)
+
+## Installation
+- download and compile ScalaDash
+- scala scaladash.ScalaDash ../../../resource/level.txt
