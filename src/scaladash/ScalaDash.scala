@@ -19,8 +19,7 @@ object ScalaDash extends App {
     println()
     print(game)
 
-    var loop = true
-    while(loop) {
+    while(true) {
         val c: Int = Console.in.read()
         val directionActions: String = c match {
             case 97 => "left"               // a

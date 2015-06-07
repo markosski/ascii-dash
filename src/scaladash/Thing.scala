@@ -1,5 +1,4 @@
 package scaladash
-
 import scala.util.Random
 /**
  * Created by marcinkossakowski on 6/2/15.
@@ -63,6 +62,7 @@ class Diamond extends Thing with HasValue with CanMove {
     val points = 15
 
     def nextMove(): String = {
+        // Can only move down to simulate gravity
         return "down"
     }
      
@@ -79,6 +79,7 @@ class Boulder extends Thing with CanMove {
     var velocity = 0
 
     def nextMove(): String = {
+        // Can only move down to simulate gravity
         return "down"
     }
 
@@ -87,10 +88,20 @@ class Boulder extends Thing with CanMove {
          thing match {
             case thing: Space => velocity += 1; thing
             case _: PsychoKiller | _: Player => {
-                if (velocity >= 1) { velocity = 0; new Space }
-                else velocity = 0; throw new IllegalMove
+                if (velocity >= 1) {
+                    velocity = 0
+                    new Space
+                } else {
+                    // reset velocity
+                    velocity = 0
+                    throw new IllegalMove
+                }
             }
-            case _ => throw new IllegalMove
+            case _ => {
+                // reset velocity
+                velocity = 0
+                throw new IllegalMove
+            }
         }
     }
 }

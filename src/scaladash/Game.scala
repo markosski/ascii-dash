@@ -7,13 +7,8 @@ import scala.collection.mutable.Set
 /**
  * Created by marcinkossakowski on 6/2/15.
  *
- * Provided input will load in board into data structure.
  * ascii colors http://www.scala-lang.org/api/2.5.1/scala/Console$object.html
  *
- * Bugs & Improvements:
- * - Program does not check for board boundaries
- * - Count player moves
- * - Deduct score for digging
  */
 class Game(height: Int, width: Int, boardString: String) {
     var board: Array[Thing] = new Array(width*height)
