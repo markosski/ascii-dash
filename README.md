@@ -17,7 +17,7 @@ Elements in the game are:
 ## Install and compile
 - assure scala is installed on your system (I used version 2.11.4)
 - clone repo `git clone https://github.com/martez81/scala-dash.git`
-- cd to `cd scala-dash`
+- switch to scala-dash dir `cd scala-dash`
 - create dir for compiled source `mkdir out` 
 - compile `scalac src/scaladash/* -d out`
 - run game `scala -cp out scaladash.ScalaDash resource/level.txt`
