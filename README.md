@@ -14,8 +14,11 @@ Elements in the game are:
 
 ![Alt text](https://github.com/martez81/scala-dash/blob/master/resource/img/screenshot1.png)
 
-## Install and compile
-- assure scala is installed on your system (I used version 2.11.4)
+## Requirements
+- OSX or Linux, not sure about Windows
+- Scala and JVM environment installed (tested on Scala 2.11.4)
+
+## Install
 - clone repo `git clone https://github.com/martez81/scala-dash.git`
 - switch to scala-dash dir `cd scala-dash`
 - create dir for compiled source `mkdir out` 
