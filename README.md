@@ -1,14 +1,15 @@
-# scala-dash
-ScalaDash is a game similar to famous Boulder Dash. Game is very simple and easy to extend with new levels and rules.
+# ascii-dash
+ASCII-Dash is a game similar to famous Boulder Dash. Game is very simple and easy to extend with new levels and rules.
 Rules of the game are following.
-Player has to collect all the diamonds (+) to finish the level. There are guards (x) that can kill you if they run into you.
-Player can also die from being crushed by a boulder (O). Guards can also get crushed by a falling boulder.
+Player has to collect all the coins (+) to finish the level. There are bad guys (x) you have to avoid, you will die if they catch you.
+There is a notion of gravity where boulders (O) and coins can fall if there is empty space below. Watch out! player and bad guys can be crushed by a falling boulder.
+
 Elements in the game are:
 - "*" - player
-- "x" - guard
+- "x" - bad guy
 - "O" - boulder
 - "#" - filler, will substract 1 form score
-- "+" - diamond, will add 15 to score
+- "+" - coin, will add 15 to score
 - "|" - vertical wall
 - "-" - horizontal wall
 
