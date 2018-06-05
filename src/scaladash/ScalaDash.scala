@@ -13,7 +13,7 @@ object ScalaDash extends App {
     val game = Game(inputFileName)
     game.start()
     println()
-    println("### Welcome to SCALA-DASH ###")
+    println("### Welcome to ASCII-DASH ###")
     println("Use keys: w - up, s - down, a - left, d - right, p - stay in place, x - exit game")
     println("*Press ENTER to continue*")
     println()
