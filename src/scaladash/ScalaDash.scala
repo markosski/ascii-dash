@@ -1,6 +1,9 @@
 package scaladash
 import scala.util.{Try, Failure, Success}
 import scala.util.control.Breaks._
+import scala.io.Source
+import java.lang.Thread
+import java.io.{PrintWriter, File}
 
 /**
  * Created by marcinkossakowski on 6/2/15.
@@ -9,9 +12,13 @@ import scala.util.control.Breaks._
  * example: scala com.mkoss.scaladash.ScalaDash ../../../resource/level.txt
  */
 object ScalaDash extends App {
-    val inputFileName = args(0)
+    val outFile: String = "out.txt"
+    val inputFileName: String = args(0)
+    val maybeActionSeqenceFile: Option[String] = Try(args(1)).toOption
+
     val game = Game(inputFileName)
     game.start()
+    
     println()
     println("### Welcome to ASCII-DASH ###")
     println("Use keys: w - up, s - down, a - left, d - right, p - stay in place, x - exit game")
@@ -19,9 +26,11 @@ object ScalaDash extends App {
     println()
     print(game)
 
-    while(true) {
-        val c: Int = Console.in.read()
-        val directionActions: String = c match {
+    /**
+     * Render scene based on single move.
+     */
+    def renderScene(inputAction: Int): Unit = {
+        val directionActions: String = inputAction match {
             case 97 => "left"               // a
             case 100 => "right"             // d
             case 119 => "up"                // w
@@ -30,7 +39,7 @@ object ScalaDash extends App {
             case _ => ""
         }
 
-        val otherActions: String = c match {
+        val otherActions: String = inputAction match {
             case 120 => "quit"              // x
             case _ => ""
         }
@@ -59,4 +68,37 @@ object ScalaDash extends App {
             }
         }
     }
+
+    /**
+     * Ask user to enter next move.
+     * Record all moves to a file.
+     */
+    def userMoveInput = {
+        val out = new PrintWriter(new File(outFile))
+
+        breakable {
+            while(true) {
+                val c: Int = Console.in.read()
+                out.write(c.toChar.toString)
+                renderScene(c)
+            }    
+        }
+        
+        println("Writing moves and exiting.")
+        out.close
+    }
+
+    /**
+     * Execute inputs.
+     */ 
+    maybeActionSeqenceFile match {
+        case Some(fileName) => {
+            for ( line <- Source.fromFile(fileName).getLines() ) {
+                renderScene(line(0).toInt) // line here should be single character
+                Thread.sleep(250)
+            }
+        }
+        case None => userMoveInput
+    }
+
 }
