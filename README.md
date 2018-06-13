@@ -20,7 +20,7 @@ Elements in the game are:
 - Scala and JVM environment installed (tested on Scala 2.11.4)
 
 ## Install
-- clone repo `git clone https://github.com/martez81/scala-dash.git`
+- clone repo `git clone https://github.com/martez81/ascii-dash.git`
 - switch to scala-dash dir `cd scala-dash`
 - create dir for compiled source `mkdir out` 
 - compile `scalac src/scaladash/* -d out`
