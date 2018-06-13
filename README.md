@@ -21,7 +21,7 @@ Elements in the game are:
 
 ## Install
 - clone repo `git clone https://github.com/martez81/ascii-dash.git`
-- switch to scala-dash dir `cd scala-dash`
+- switch to ascii-dash dir `cd ascii-dash`
 - create dir for compiled source `mkdir out` 
 - compile `scalac src/scaladash/* -d out`
 - run game `scala -cp out scaladash.ScalaDash resource/level.txt`
