@@ -13,7 +13,7 @@ Elements in the game are:
 - "|" - vertical wall
 - "-" - horizontal wall
 
-![Alt text](https://github.com/martez81/scala-dash/blob/master/resource/img/game.gif)
+![Alt text](resource/img/game.gif)
 
 ## Requirements
 - OSX or Linux, not sure about Windows
