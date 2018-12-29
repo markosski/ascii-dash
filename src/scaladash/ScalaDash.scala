@@ -94,8 +94,10 @@ object ScalaDash extends App {
     maybeActionSeqenceFile match {
         case Some(fileName) => {
             for ( line <- Source.fromFile(fileName).getLines() ) {
-                renderScene(line(0).toInt) // line here should be single character
-                Thread.sleep(250)
+                if (line.length > 0) {
+                    renderScene(line(0).toInt) // line here should be single character
+                    Thread.sleep(250)
+                }
             }
         }
         case None => userMoveInput

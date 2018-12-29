@@ -35,8 +35,8 @@ class Player extends Thing with CanMove {
     def consume(thing: Thing): Thing = {
         return thing match {
             case obj: Diamond => score += obj.points; new Space()
-            case obj: Turf => score -= 1; new Space()
-            case obj: Space => thing
+            case obj: Turf => score += obj.points; new Space()
+            case obj: Space => score += obj.points; thing
             case _ => throw new IllegalMove
         }
     }
@@ -59,7 +59,7 @@ class PsychoKiller extends Thing with CanMove {
 }
 
 class Diamond extends Thing with HasValue with CanMove {
-    val points = 15
+    val points = 30
 
     def nextMove(): String = {
         // Can only move down to simulate gravity
@@ -107,10 +107,12 @@ class Boulder extends Thing with CanMove {
 }
 
 class Turf extends Thing {
+    val points = -2
     override def toString() = "#"
 }
 
 class Space extends Thing {
+    val points = -1
     override def toString() = " "
 }
 
