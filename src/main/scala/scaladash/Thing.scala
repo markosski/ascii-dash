@@ -55,7 +55,7 @@ class PsychoKiller extends Thing with CanMove {
         }
     }
 
-    override def toString() = Console.RED + "x" + Console.RESET
+    override def toString() = Console.RED + "*" + Console.RESET
 }
 
 class Diamond extends Thing with HasValue with CanMove {
@@ -83,7 +83,7 @@ class Boulder extends Thing with CanMove {
         return "down"
     }
 
-    override def toString() = "O"
+    override def toString() = "o"
     def consume(thing: Thing): Thing = {
          thing match {
             case thing: Space => velocity += 1; thing
@@ -117,11 +117,11 @@ class Space extends Thing {
 }
 
 class HWall extends Thing {
-    override def toString() = "-"
+    override def toString() = "═"
 }
 
 class VWall extends Thing {
-    override def toString() = "|"
+    override def toString() = "║"
 }
 
 

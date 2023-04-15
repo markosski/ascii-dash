@@ -8,12 +8,12 @@ Elements in the game are:
 - "*" - player
 - "x" - bad guy
 - "O" - boulder
-- "#" - filler, will substract 1 form score
+- "#" - soil, will substract 1 form score
 - "+" - coin, will add 15 to score
 - "|" - vertical wall
 - "-" - horizontal wall
 
-![Alt text](resource/img/game.gif)
+![Alt text](img/game.gif)
 
 ## Requirements
 - OSX or Linux, not sure about Windows
@@ -22,8 +22,7 @@ Elements in the game are:
 ## Install
 - clone repo `git clone https://github.com/martez81/ascii-dash.git`
 - switch to ascii-dash dir `cd ascii-dash`
-- create dir for compiled source `mkdir out` 
-- compile `scalac src/scaladash/* -d out`
-- run game `scala -cp out scaladash.ScalaDash resource/level.txt`
+- install sbt build tool for needed `brew install sbt`
+- compile `sbt "run src/main/resources/level.txt"`
 - create your own level!
 - enjoy

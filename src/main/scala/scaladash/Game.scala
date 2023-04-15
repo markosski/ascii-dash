@@ -19,16 +19,16 @@ class Game(height: Int, width: Int, boardString: String) {
 
     def start(): Unit = {
         for ((char, i) <- boardString.zipWithIndex) {
-            val thing: Thing = char.toString match {
-                case "#" => new Turf()
-                case " " => new Space()
-                case "+" => treasure += 1; new Diamond()
-                case "O" => new Boulder()
-                case "*" => playerPosition = i; new Player()
-                case "-" => new HWall()
-                case "|" => new VWall()
-                case "x" => new PsychoKiller()
-                case s: String => throw new Exception("Illegal character: " + s)
+            val thing: Thing = char match {
+                case '#' => new Turf()
+                case ' ' => new Space()
+                case '+' => treasure += 1; new Diamond()
+                case 'O' => new Boulder()
+                case '*' => playerPosition = i; new Player()
+                case '-' => new HWall()
+                case '|' => new VWall()
+                case 'x' => new PsychoKiller()
+                case s: Char => throw new Exception("Illegal character: " + s)
             }
             board(i) = thing
         }
